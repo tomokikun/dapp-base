@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  truffle:
+    build: 
+      context: ./truffle/
+      dockerfile: Dockerfile
+    volumes:
+      - ./truffle:/usr/src/app
+    command: sh -c "cd client && npm start"
+    ports:
+      - "8003:3000"
+    depends_on: 
+      - ganache
+
+  ganache:
+    image: trufflesuite/ganache-cli:latest
+    volumes: 
+      - ./ganache:/usr/src/app
+    ports:
+      - "7545:7545"
