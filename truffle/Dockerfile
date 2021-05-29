@@ -6,4 +6,4 @@ RUN apk update \
     && apk add --no-cache git python g++ make \
     && rm -rf /var/cache/apk/* \
     && npm install \
-    && npm install -g truffle
+    && npm install -g truffle react-scripts
